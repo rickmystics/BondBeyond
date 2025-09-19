@@ -3,36 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Hub</title>
-    <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>BondBeyond - Professional Networking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2b4c 0%, #2c4a7a 30%, #8b9dc3 60%, #d4c4a8 100%);
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        /* Network Tree on Left */
+        .network-tree {
+            position: absolute;
+            left: 2%;
+            top: 10%;
+            width: 300px;
+            height: 80%;
+        }
+
+        .network-tree svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tree-node {
+            fill: #d4af37;
+            stroke: #b8941f;
+            stroke-width: 2;
+        }
+
+        .tree-line {
+            stroke: #d4af37;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .user-icon {
+            fill: #2c4a7a;
+            font-size: 12px;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            left: 25%;
+            top: 35%;
+            z-index: 10;
+        }
+
+        .brand-name {
+            font-size: 4rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .get-started-btn {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .get-started-btn:hover {
+            background: rgba(0,0,0,0.9);
+            transform: translateY(-2px);
+        }
+
+        .arrows {
+            font-size: 1.2rem;
+            color: #d4af37;
+        }
+
+        /* Attribution */
+        .attribution {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            color: white;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Network Visualization Background */
+        .network-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .network-point {
+            fill: #fff;
+            filter: drop-shadow(0 0 8px #fff);
+            animation: pulse 2s infinite;
+        }
+
+        .network-line {
+            stroke: rgba(255,255,255,0.3);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* People Silhouettes */
+        .people-silhouettes {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            width: 400px;
+            height: 60%;
+        }
+
+        .silhouette {
+            position: absolute;
+            bottom: 0;
+            fill: rgba(0,0,0,0.7);
+        }
+
+        .silhouette-1 { right: 300px; bottom: 200px; transform: scale(0.8); }
+        .silhouette-2 { right: 250px; bottom: 180px; transform: scale(0.9); }
+        .silhouette-3 { right: 200px; bottom: 190px; transform: scale(0.85); }
+        .silhouette-4 { right: 150px; bottom: 0; transform: scale(1.1); }
+        .silhouette-5 { right: 100px; bottom: 0; transform: scale(1.0); }
+        .silhouette-6 { right: 50px; bottom: 0; transform: scale(1.05); }
+        .silhouette-7 { right: 0px; bottom: 0; transform: scale(0.95); }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="your-university-logo.png" alt="University Logo" class="logo">
-            <h1>Welcome to Your University Hub</h1>
-        </header>
+        <!-- Floating Particles -->
+        <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1s;"></div>
 
-        <main class="portal-selection">
-            <div class="portal alumni-portal">
-                <div class="overlay"></div>
-                <div class="content">
-                    <h2>Alumni Network</h2>
-                    <p>Reconnect with former classmates, expand your professional network, and access exclusive alumni resources.</p>
-                    <a href="alumni-login.html" class="cta-button alumni-button">Alumni Login</a>
-                </div>
-            </div>
+        <!-- Network Background -->
+        <svg class="network-bg" viewBox="0 0 1200 800">
+            <!-- Network connections -->
+            <line class="network-line" x1="200" y1="300" x2="400" y2="200"></line>
+            <line class="network-line" x1="400" y1="200" x2="600" y2="250"></line>
+            <line class="network-line" x1="600" y1="250" x2="800" y2="180"></line>
+            <line class="network-line" x1="300" y1="400" x2="500" y2="350"></line>
+            <line class="network-line" x1="500" y1="350" x2="700" y2="400"></line>
+            <line class="network-line" x1="400" y1="500" x2="600" y2="450"></line>
+            <line class="network-line" x1="600" y1="450" x2="900" y2="500"></line>
+            
+            <!-- Network points -->
+            <circle class="network-point" cx="200" cy="300" r="4"></circle>
+            <circle class="network-point" cx="400" cy="200" r="5"></circle>
+            <circle class="network-point" cx="600" cy="250" r="4"></circle>
+            <circle class="network-point" cx="800" cy="180" r="6"></circle>
+            <circle class="network-point" cx="300" cy="400" r="4"></circle>
+            <circle class="network-point" cx="500" cy="350" r="5"></circle>
+            <circle class="network-point" cx="700" cy="400" r="4"></circle>
+            <circle class="network-point" cx="400" cy="500" r="4"></circle>
+            <circle class="network-point" cx="600" cy="450" r="5"></circle>
+            <circle class="network-point" cx="900" cy="500" r="4"></circle>
+        </svg>
 
-            <div class="portal student-portal">
-                <div class="overlay"></div>
-                <div class="content">
-                    <h2>Student Portal</h2>
-                    <p>Access your academic resources, manage your courses, and stay updated with campus news and events.</p>
-                    <a href="student-login.html" class="cta-button student-button">Student Login</a>
-                </div>
-            </div>
-        </main>
-    </div>
-</body>
-</html>
+        <!-- Network Tree -->
+        <div class="network-tree">
+            <svg viewBox="0 0 300 600">
+                <!-- Tree structure -->
+                <line class="tree-line" x1="50" y1="550" x2="50" y2="450"></line>
+                <line class="tree-line" x1="50" y1="450" x2="100" y2="400"></line>
+                <line class="tree-line" x1="50" y1="450" x2="20" y2="400"></line>
+                <line class="tree-line" x1="100" y1="400" x2="150" y2="350"></line>
+                <line class="tree-line" x1="100" y1="400" x2="80" y2="350"></line>
+                <line class="tree-line" x1="20" y1="400" x2="40" y2="350"></line>
+                <line class="tree-line" x1="150" y1="350" x2="200" y2="300"></line>
+                <line class="tree-line" x1="150" y1="350" x2="120" y2="300"></line>
+                <line class="tree-line" x1="80" y1="350" x2="110" y2="300"></line>
+                <line class="tree-line" x1="40" y1="350" x2="70" y2="300"></line>
+                <line class="tree-line" x1="200" y1="300" x2="250" y2="250"></line>
+                <line class="tree-line" x1="200" y1="300" x2="180" y2="250"></line>
+                
+                <!-- Tree nodes with user icons -->
+                <circle class="tree-node" cx="50" cy="550" r="15"></circle>
+                <text class="user-icon" x="50" y="550">👤</text>
+                
+                <circle class="tree-node" cx="100" cy="400" r="12"></circle>
+                <text class="user-icon" x="100" y="400">👤</text>
+                
+                <circle class="tree-node" cx="20" cy="400" r="12"></circle>
+                <text class="user-icon" x="20" y="400">👤</text>
+                
+                <circle class="tree-node" cx="150" cy="350" r="10"></circle>
+                <text class="user-icon" x="150" y="350">👤</text>
+                
+                <circle class="tree-node" cx="80" cy="350" r="10"></circle>
+                <text class="user-icon" x="80" y="350">👤</text>
+                
+                <circle class="tree-node" cx="40" cy="350" r="10"></circle>
+                <text class="user-icon" x="40" y="350">👤</text>
+                
+                <circle class="tree-node" cx="200" cy="300" r="8"></circle>
+                <text class="user-icon" x="200" y="300">👤</text>
+                
+                <circle class="tree-node" cx="120" cy="300" r="8"></circle>
+                <text class="user-icon" x="120" y="300">👤</text>
+                
+                <circle class="tree-node" cx="110" cy="300" r="8"></circle>
+                <text class="user-icon" x="110" y="300">👤</text>
+                
+                <circle class="tree-node" cx="70" cy="300" r="8"></circle>
+                <text class="user-icon" x="70" y="300">👤</text>
+                
+                <circle class="tree-node" cx="250" cy="250" r="6"></circle>
+                <text class="user-icon" x="250" y="250">👤</text>
+                
+                <circle class="tree-node" cx="180" cy="250" r="6"></circle>
+                <text class="user-icon" x="180" y="250">👤</text>
+            </svg>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="brand-name">BondBeyond</h1>
+            <a href="indexlogin.html" class="get-started-btn">
+                Get Started
+                <span class="arrows">››››</span>
+            </a>
+        </div>
+
+        <!-- People Silhouettes -->
+        <div class="people-silhouettes">
+            <!-- Person 1 - with backpack -->
+            <svg class="silhouette silhouette-1" width="60" height="120" viewBox="0 0 60 120">
+                <path d="M30 10 C35 10 40 15 40 20 C40 25 35 30 30 30 C25 30 20 25 20 20 C20 15 25 10 30 10 Z M25 35 L35 35 L38 45 L42 50 L42 120 L35 120 L35 100 L25 100 L25 120 L18 120 L18 50 L22 45 Z M20 40 L15 45 L15 55 L20 50 Z"></path>
+            </svg>
+            
+            <!-- Person 2 - casual -->
+            <svg class="silhouette silhouette-2" width="55" height="130" viewBox="0 0 55 130">
+                <path d="M27 8 C32 8 37 13 37 18 C37 23 32 28 27 28 C22 28 17 23 17 18 C17 13 22 8 27 8 Z M22 33 L32 33 L35 43 L35 130 L28 130 L28 110 L26 110 L26 130 L19 130 L19 43 Z"></path>
+            </svg>
+            
+            <!-- Person 3 - with bag -->
+            <svg class="silhouette silhouette-3" width="58" height="125" viewBox="0 0 58 125">
+                <path d="M29 9 C34 9 39 14 39 19 C39 24 34 29 29 29 C24 29 19 24 19 19 C19 14 24 9 29 9 Z M24 34 L34 34 L37 44 L40 49 L40 125 L33 125 L33 105 L25 105 L25 125 L18 125 L18 49 L21 44 Z M38 42 L43 47 L43 57 L38 52 Z"></path>
+            </svg>
+            
+            <!-- Person 4 - business suit -->
+            <svg class="silhouette silhouette-4" width="65" height="140" viewBox="0 0 65 140">
+                <path d="M32 10 C37 10 42 15 42 20 C42 25 37 30 32 30 C27 30 22 25 22 20 C22 15 27 10 32 10 Z M27 35 L37 35 L40 45 L40 140 L33 140 L33 120 L31 120 L31 140 L24 140 L24 45 Z M25 50 L20 55 L20 65 L25 60 Z M39 50 L44 55 L44 65 L39 60 Z"></path>
+            </svg>
+            
+            <!-- Person 5 - casual business -->
+            <svg class="silhouette silhouette-5" width="62" height="135" viewBox="0 0 62 135">
+                <path d="M31 9 C36 9 41 14 41 19 C41 24 36 29 31 29 C26 29 21 24 21 19 C21 14 26 9 31 9 Z M26 34 L36 34 L39 44 L39 135 L32 135 L32 115 L30 115 L30 135 L23 135 L23 44 Z"></path>
+            </svg>
+            
+            <!-- Person 6 - formal -->
+            <svg class="silhouette silhouette-6" width="63" height="138" viewBox="0 0 63 138">
+                <path d="M31 10 C36 10 41 15 41 20 C41 25 36 30 31 30 C26 30 21 25 21 20 C21 15 26 10 31 10 Z M26 35 L36 35 L39 45 L39 138 L32 138 L32 118 L30 118 L30 138 L23 138 L23 45 Z M24 52 L19 57 L19 67 L24 62 Z M38 52 L43 57 L43 67 L38 62 Z"></path>
+            </svg>
+            
+            <!-- Person 7 - relaxed -->
+            <svg class="silhouette silhouette-7" width="60" height="132" viewBox="0 0 60 132">
+                <path d="M30 9 C35 9 40 14 40 19 C40 24 35 29 30 29 C25 29 20 24 20 19 C20 14 25 9 30 9 Z M25 34 L35 34 L38 44 L38 132 L31 132 L31 112 L29 112 L29 132 L22 132 L22 44 Z"></path>
+            </svg>
+        </div>
+
+        <!-- Attribution -->
+        <div class="attribution">
+            By-
