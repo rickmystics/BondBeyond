@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 50px;
+            border: none;
+            border-radius: 25px;
+            background: #f0f0f0;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .nav-icon:hover {
+            background: #1e40af;
+        }
+
+        .menu-icon {
+            background: none;
+            border-radius: 0;
+            width: auto;
+            height: auto;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mentor-card {
+            background: rgba(30, 58, 138, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .mentor-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mentor-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .avatar-icon {
+            width: 80px;
+            height: 80px;
+            background: #e5e7eb;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .avatar-icon::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: #9ca3af;
+            border-radius: 50%;
+        }
+
+        .avatar-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 25px;
+            background: #9ca3af;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .mentor-details {
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .mentor-details div {
+            margin-bottom: 8px;
+        }
+
+        .mentor-details strong {
+            font-weight: 600;
+        }
+
+        .mentorship-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .info-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .highlights-card {
+            background: rgba(30, 58, 138, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            height: fit-content;
+        }
+
+        .highlights-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .highlight-item {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .highlight-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .highlight-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .header {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-icons {
+                gap: 10px;
+            }
+            
+            .mentor-card, .highlights-card {
+                padding: 25px;
+            }
+            
+            .mentorship-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="search-container">
+            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input type="text" class="search-input" placeholder="Search">
+        </div>
+        <div class="nav-icons">
+            <div class="nav-icon">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </div>
+            <div class="nav-icon">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
+                </svg>
+            </div>
+            <div class="nav-icon">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"/>
+                </svg>
+            </div>
+            <div class="nav-icon">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M16 4C18.2 4 20 5.8 20 8C20 10.2 18.2 12 16 12C13.8 12 12 10.2 12 8C12 5.8 13.8 4 16 4ZM8 4C10.2 4 12 5.8 12 8C12 10.2 10.2 12 8 12C5.8 12 4 10.2 4 8C4 5.8 5.8 4 8 4ZM8 14C12.42 14 16 15.79 16 18V20H0V18C0 15.79 3.58 14 8 14ZM16 14C20.42 14 24 15.79 24 18V20H18V18.5C18 16.9 17.1 15.5 15.8 14.5C15.9 14.3 16 14.2 16 14Z"/>
+                </svg>
+            </div>
+            <div class="nav-icon">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5S10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z"/>
+                </svg>
+            </div>
+            <div class="nav-icon">
+                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9Z"/>
+                </svg>
+            </div>
+            <div class="nav-icon menu-icon">
+                <svg width="24" height="24" fill="#1e3a8a" viewBox="0 0 24 24">
+                    <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="mentor-card">
+            <div class="mentor-header">
+                <h1 class="mentor-title">Your Mentor</h1>
+                <div class="profile-avatar">
+                    <div class="avatar-icon"></div>
+                </div>
+            </div>
+            
+            <div class="mentor-details">
+                <div><strong>Name:</strong> Dr. Rajesh Menon</div>
+                <div><strong>Alma Mater:</strong> B.Tech (Computer Science & Engineering)</div>
+                <div><strong>Class of</strong> 2005</div>
+                <div><strong>Current Role:</strong> Senior Software Architect at Infosys Technologies</div>
+                <div><strong>Expertise:</strong> Software Engineering, Artificial Intelligence, Data Structures & Algorithms</div>
+            </div>
+
+            <div class="mentorship-info">
+                <div class="info-section">
+                    <h3>Mentorship Tenure</h3>
+                    <p>From-20/09/2025<br>To- 29/11/2025</p>
+                </div>
+                <div class="info-section">
+                    <h3>Time Remaining:</h3>
+                    <p>2 Months</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlights-card">
+            <h2 class="highlights-title">Highlights</h2>
+            <div class="highlight-item">
+                <div class="highlight-title">most strange team name award goes to TEAM NEELE SANTRE</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-description">The members said strange hai to kyahua iconic hai</div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

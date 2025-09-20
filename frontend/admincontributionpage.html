@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Contribution Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background network decoration */
+        body::before {
+            content: '';
+            position: absolute;
+            left: -100px;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(237, 201, 175, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(237, 201, 175, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, rgba(237, 201, 175, 0.25) 1.5px, transparent 1.5px);
+            background-size: 50px 50px, 30px 30px, 40px 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #e8dcc0;
+            border-radius: 24px;
+            padding: 60px 50px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 40px;
+            align-items: center;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .avatar::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+        }
+
+        .avatar::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            width: 30px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .name-tag {
+            background: #6b7280;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            min-width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .name-tag:hover {
+            background: #5b6470;
+            transform: translateY(-1px);
+        }
+
+        /* Special positioning for the grid items */
+        .user-item:nth-child(3) {
+            grid-column: 1;
+        }
+
+        .user-item:nth-child(4) {
+            grid-column: 2;
+        }
+
+        .user-item:nth-child(5) {
+            grid-column: 1;
+        }
+
+        .user-item:nth-child(6) {
+            grid-column: 2;
+        }
+
+        .user-item:nth-child(7) {
+            grid-column: 1;
+            margin-top: 20px;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            top: -20px;
+            left: 280px;
+            background: #1e293b;
+            color: white;
+            padding: 20px 24px;
+            border-radius: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+            min-width: 280px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid #1e293b;
+        }
+
+        .tooltip-line {
+            margin-bottom: 4px;
+        }
+
+        .tooltip-line:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Show tooltip on the Daniel Gillies item */
+        .user-item:nth-child(3) {
+            position: relative;
+        }
+
+        .user-item:nth-child(3) .tooltip {
+            display: block;
+        }
+
+        .tooltip {
+            display: none;
+        }
+
+        .user-item:nth-child(3) .tooltip {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+            }
+            
+            .user-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .tooltip {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            .tooltip::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-grid">
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Rohit Saraf</div>
+            </div>
+            
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Henry Cavill</div>
+            </div>
+            
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Daniel Gillies</div>
+                <div class="tooltip">
+                    <div class="tooltip-line">in Scholarships funded-1</div>
+                    <div class="tooltip-line">in Research-3</div>
+                    <div class="tooltip-line">in Startup grants-2</div>
+                    <div class="tooltip-line">in ExtraCurriculars-4</div>
+                </div>
+            </div>
+            
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Ian Somerhalder</div>
+            </div>
+            
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Joseph Morgan</div>
+            </div>
+            
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Barun Sobti</div>
+            </div>
+            
+            <div class="user-item">
+                <div class="avatar"></div>
+                <div class="name-tag">Sidharth Malhotra</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

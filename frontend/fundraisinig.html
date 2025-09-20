@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bond Fund - Invest in the Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            left: -100px;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(218, 165, 32, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(218, 165, 32, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, rgba(218, 165, 32, 0.25) 1.5px, transparent 1.5px);
+            background-size: 50px 50px, 30px 30px, 40px 40px;
+        }
+
+        /* Geometric lines */
+        body::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, rgba(218, 165, 32, 0.2) 49%, rgba(218, 165, 32, 0.2) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(218, 165, 32, 0.15) 49%, rgba(218, 165, 32, 0.15) 51%, transparent 52%);
+            background-size: 80px 80px, 60px 60px;
+        }
+
+        .container {
+            background: rgba(44, 62, 80, 0.95);
+            border-radius: 24px;
+            padding: 60px;
+            max-width: 900px;
+            margin: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(218, 165, 32, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '👥';
+            font-size: 24px;
+            filter: grayscale(1) brightness(2);
+        }
+
+        .title {
+            color: #f8f9fa;
+            font-size: 48px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #ecf0f1;
+            font-size: 24px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .welcome-title {
+            color: #f8f9fa;
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .content {
+            color: #bdc3c7;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .content p {
+            margin-bottom: 25px;
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #d4af7a 0%, #c19a6b 100%);
+            color: #2c3e50;
+            border: none;
+            padding: 18px 60px;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .next-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #dab76f 0%, #c8a572 100%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            .title {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 20px;
+            }
+            
+            .welcome-title {
+                font-size: 28px;
+            }
+            
+            .content {
+                font-size: 16px;
+            }
+            
+            .next-button {
+                padding: 16px 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"></div>
+            <h1 class="title">The Bond Fund</h1>
+        </div>
+        
+        <h2 class="subtitle">- Invest in the Future</h2>
+        
+        <h3 class="welcome-title">Welcome to The Bond Fund!</h3>
+        
+        <div class="content">
+            <p>Our students are driven by passion, innovation, and a commitment to excellence. Yet many face financial barriers that limit their ability to explore research, pursue entrepreneurial ventures, or represent the university in national and international platforms.</p>
+            
+            <p>As alumni, you know how valuable the right support can be in shaping a career. By contributing to the Alumni Fund, you are directly empowering talented students to focus on learning, leadership, and discovery without financial stress.</p>
+            
+            <p>Your generosity strengthens our community, builds opportunities, and ensures that no deserving student is left behind. Together, we can continue the tradition of excellence and make a lasting impact.</p>
+        </div>
+        
+        <button class="next-button"onclick="window.location.href='fundingselect.html'">NEXT</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Field Selector</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin-right: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #34495e;
+            border-radius: 25px;
+            font-size: 16px;
+            background-color: #ecf0f1;
+            outline: none;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #2c3e50;
+        }
+
+        .main-container {
+            display: flex;
+            padding: 40px 20px;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left-section {
+            flex: 2;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            color: #ecf0f1;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .interest-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .interest-button {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: #ecf0f1;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .interest-button:hover {
+            background-color: rgba(52, 152, 219, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .right-section {
+            flex: 1;
+            background-color: rgba(44, 62, 80, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlights-title {
+            color: #ecf0f1;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .highlight-text {
+            color: #bdc3c7;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .team-name {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding: 20px 10px;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .interest-button {
+                font-size: 1.1em;
+                padding: 15px 25px;
+            }
+            
+            .nav-icons {
+                gap: 10px;
+            }
+            
+            .nav-icon {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search">
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon">🏠</a>
+            <a href="#" class="nav-icon">💰</a>
+            <a href="#" class="nav-icon">💬</a>
+            <a href="#" class="nav-icon">👥</a>
+            <a href="#" class="nav-icon">🔔</a>
+            <a href="#" class="nav-icon">👤</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="left-section">
+            <h1 class="section-title">Select Your Interest Field</h1>
+            <div class="interest-buttons">
+    <a href="studentselectfunding.html" class="interest-button">Career Development</a>
+    <a href="studentselectfunding.html" class="interest-button">Higher Studies & Exams</a>
+    <a href="studentselectfunding.html" class="interest-button">Academic & Technical Guidance</a>
+    <a href="studentselectfunding.html" class="interest-button">Industry-Specific Insights</a>
+    <a href="studentselectfunding.html" class="interest-button">Entrepreneurship & Innovation</a>
+    <a href="studentselectfunding.html" class="interest-button">Personal Growth</a>
+    <a href="studentselectfunding.html" class="interest-button">Soft Skills</a>
+</div>
+
+        </div>
+
+        <div class="right-section">
+            <h2 class="highlights-title">Highlights</h2>
+            <p class="highlight-text">
+                most strange team name award goes to <span class="team-name">TEAM NEELE SANTRE</span>
+            </p>
+            <p class="highlight-text">
+                The members said strange hai to kyahua iconic hai
+            </p>
+        </div>
+    </div>
+</body>
+</html>

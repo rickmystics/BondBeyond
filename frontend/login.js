@@ -1,23 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
 
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent default form submission
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-        // In a real application, you would send a request to a backend API
-        // to authenticate the user's credentials.
-
-        const username = document.getElementById('alumni-username').value;
+        const email = document.getElementById('alumni-username').value;
         const password = document.getElementById('alumni-password').value;
 
-        // For this frontend-only example, we'll simulate a successful login.
-        // In a real scenario, you'd check a response from the server.
-        if (username && password) {
-            // Redirect to the alumni list page upon successful login
-            window.location.href = 'alumni_list.html';
-        } else {
-            // Handle login failure (e.g., show an error message)
-            alert('Please enter your username and password.');
+        try {
+            const response = await fetch('http://localhost:3000/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Login successful, redirect to the alumni list page
+                window.location.href = 'alumni_list.html';
+            } else {
+                // Login failed, display error message from the backend
+                alert(data.error || 'Login failed. Please check your credentials.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Could not connect to the server. Please try again later.');
         }
     });
 });

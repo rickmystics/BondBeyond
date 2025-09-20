@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiiT - Alumni Mentorship Program</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Top Navigation -->
+    <header class="bg-gray-200 px-4 py-3">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-2xl">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 bg-gray-300 rounded-full text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            
+            <!-- Navigation Icons -->
+            <div class="flex items-center space-x-4 ml-6">
+                <button class="p-2 bg-blue-900 rounded-full text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                    </svg>
+                </button>
+                <button class="p-2 bg-blue-900 rounded-full text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"></path>
+                    </svg>
+                </button>
+                <button class="p-2 bg-blue-900 rounded-full text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <button class="p-2 bg-blue-900 rounded-full text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                    </svg>
+                </button>
+                <button class="p-2 bg-blue-900 rounded-full text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
+                    </svg>
+                </button>
+                <button class="p-2 bg-blue-900 rounded-full text-white">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <button class="p-1">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex min-h-screen">
+        <!-- Left Section - Alumni Mentorship Program -->
+        <div class="flex-1 bg-gradient-to-br from-slate-600 to-slate-700 text-white p-12 flex flex-col justify-center">
+            <div class="max-w-2xl mx-auto text-center">
+                <!-- KiiT Logo -->
+                <div class="mb-12">
+                    <div class="inline-flex items-center justify-center w-32 h-32 border-4 border-yellow-400 rounded-full mb-4">
+                        <div class="text-yellow-400 text-2xl font-bold">KiiT</div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="flex space-x-1">
+                            <div class="w-3 h-8 bg-yellow-400 transform rotate-12"></div>
+                            <div class="w-3 h-8 bg-yellow-400 transform rotate-12"></div>
+                            <div class="w-3 h-8 bg-yellow-400 transform rotate-12"></div>
+                            <div class="w-3 h-8 bg-yellow-400 transform rotate-12"></div>
+                            <div class="w-3 h-8 bg-yellow-400 transform rotate-12"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Text -->
+                <div class="mb-12">
+                    <p class="text-lg leading-relaxed text-gray-200">
+                        Unlock your potential with the Alumni Mentorship Program. By connecting with experienced alumni, you gain guidance, industry insights, and the confidence to shape your career path. Take the first step toward growth — apply for mentorship today.
+                    </p>
+                </div>
+
+                <!-- Register Button -->
+                <div class="mb-6">
+                    <button class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-12 rounded-full text-xl transition-colors duration-200"onclick="window.location.href='mentorprofile.html'">
+                        Register
+                    </button>
+                </div>
+
+                <!-- Check Status Link -->
+                <div>
+                    <a href="#" class="text-yellow-400 hover:text-yellow-300 text-sm underline">
+                        Already Registered? Check your Status
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section - Highlights -->
+        <div class="w-96 bg-gradient-to-b from-blue-900 to-blue-950 text-white p-8">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-center">Highlights</h2>
+                
+                <div class="space-y-8">
+                    <div class="text-center">
+                        <p class="text-lg leading-relaxed">
+                            <span class="text-yellow-400">most strange team name award goes</span>
+                            <span class="block mt-2">to TEAM NEELE SANTRE</span>
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-lg leading-relaxed">
+                            The members said strange hai to kyahua iconic hai
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

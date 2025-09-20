@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .admin-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f766e 50%, #1e40af 100%);
+        }
+        .dashboard-button {
+            background: rgba(100, 116, 139, 0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .dashboard-button:hover {
+            background: rgba(100, 116, 139, 0.8);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen admin-bg p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="flex items-center mb-12">
+            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mr-6">
+                <svg class="w-10 h-10 text-amber-800" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl font-light text-white tracking-wider">ADMIN</h1>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <!-- Row 1 -->
+    <a href="adminengage.html" class="dashboard-button rounded-3xl px-8 py-8 text-white text-xl font-light tracking-wide block text-center">
+        Engagement
+    </a>
+    <a href="verify.html" class="dashboard-button rounded-3xl px-8 py-8 text-white text-xl font-light tracking-wide block text-center">
+        Verify authenticity
+    </a>
+
+    <!-- Row 2 -->
+    <a href="admincontributionpage.html" class="dashboard-button rounded-3xl px-8 py-8 text-white text-xl font-light tracking-wide block text-center">
+        Contribution
+    </a>
+    <a href="update-highlights.html" class="dashboard-button rounded-3xl px-8 py-8 text-white text-xl font-light tracking-wide block text-center">
+        Update Highlights
+    </a>
+
+    <!-- Row 3 -->
+    <a href="alumni-growth.html" class="dashboard-button rounded-3xl px-8 py-8 text-white text-xl font-light tracking-wide block text-center">
+        Track alumni growth
+    </a>
+    <a href="manage-student-data.html" class="dashboard-button rounded-3xl px-8 py-8 text-white text-xl font-light tracking-wide block text-center">
+        Manage student data
+    </a>
+</div>
+
+    </div>
+</body>
+</html>
